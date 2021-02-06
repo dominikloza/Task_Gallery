@@ -1,0 +1,84 @@
+.modal__img {
+  position: relative;
+  padding: 50px 50px;
+  background: #fff;
+  border-radius: 10px;
+  img.full__photo {
+    max-height: 70vh;
+    min-height: 400px;
+    width: auto;
+  }
+  .user {
+    display: flex ;
+      align-items: center;
+  }
+
+  img.modal__img--user {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 35px;
+    border-radius: 50%;
+  }
+
+  h2,h3 {
+    color: #000;
+    margin-bottom: unset;
+  }
+  h2 {
+    height: 30px;
+    margin-left: 20px;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-size: 20px;
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+  .fa-map-marker-alt {
+    padding-right: 10px;
+  }
+
+  .fa-times {
+    font-size: 35px;
+    color: #000;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    transition: 250ms;
+    &:hover {
+     transform: rotate(90deg);
+    }
+  }
+  &--likes {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+
+    .fa-heart {
+      font-size: 30px;
+      color: red;
+      margin-left: 10px;
+    }
+    h2 {
+      font-weight: 400;
+      font-size: 30px;
+    }
+  }
+
+}
+
+.blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100%;
+  background: rgba(0,0,0, 0.4);
+}

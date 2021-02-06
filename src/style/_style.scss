@@ -1,0 +1,17 @@
+body {
+  color: #fff;
+  text-align: left;
+  font-family: "Lato";
+
+  .container {
+    max-width: 1500px;
+    margin: 0 auto;
+    height: 100vh;
+
+  }
+  .container.start__page {
+    display: flex;
+    align-items: center;
+  }
+
+}

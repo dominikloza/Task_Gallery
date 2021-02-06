@@ -1,0 +1,136 @@
+.main__page {
+  background-image: url("../resources/bg-main.jpg");
+  background-size: cover;
+}
+
+.center__box {
+  width: 100%;
+}
+
+h2 {
+  font-size: 4em;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+h3 {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-bottom: 30px;
+}
+
+h4 {
+  font-size: 1.5rem;
+  margin-top: 30px;
+}
+
+
+form {
+  position: relative;
+
+  .fa-search {
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    transform: translateY(-50%);
+    color: #555;
+    font-size: 30px;
+  }
+
+  .search__bar {
+    padding: 20px 20px 20px 70px;
+    border: none;
+    height: 20px;
+    border-radius: 5px;
+    width: 70%;
+    font-size: 20px;
+
+    &::placeholder {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  ul {
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 70%;
+    padding-left: 50px;
+    padding-right: 40px;
+    background: #fff;
+    li {
+      padding: 15px 20px;
+      cursor: pointer;
+      color: #000;
+      font-size: 20px;
+    }
+  }
+}
+
+.photo__gallery {
+  background-image: none;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  form {
+    align-self: center;
+    margin-top: 100px;
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+
+    div {
+      position: relative;
+    }
+
+    .search__bar {
+      background: #ddd;
+      width: 800px;
+      border-radius: 20px;
+      margin-bottom: 50px;
+    }
+  }
+
+  &--search {
+    margin-left: 50px;
+    color: #000;
+    font-weight: 700;
+    margin-bottom: 100px;
+  }
+
+  &__img {
+    column-count: 4;
+    column-gap: 10px;
+    margin-bottom: 100px;
+  }
+
+  .small__photo {
+    margin: 5px 10px;
+    width: 100%;
+    height: auto;
+    transition: 250ms all;
+    cursor: pointer;
+
+    &:hover {
+      overflow: unset;
+      transform: scale(1.2);
+      z-index: 1;
+    }
+
+  }
+
+  .more {
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: #ddd;
+    width: 200px;
+    align-self: center;
+    cursor: pointer;
+  }
+}
