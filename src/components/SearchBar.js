@@ -6,45 +6,79 @@ const SearchBar = ({search, setSearch, setPhotos, setResult}) => {
 
     const unsplash = createApi({accessKey: 'nepucDy_yjCpJeogiY2PcNAgj47CZroqrdJL8WIFzbA'});
 
-    const [items, setItems] = useState([]);
+    // const [items, setItems] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
 
     let history = useHistory();
         let value;
 
+//
+//     const handleAutoComplete = (e) => {
+//         setSearch(e.target.value)
+//         value = e.target.value;
+//         let suggestions = [];
+//         if (value.length > 2) {
+//             setTimeout(function(){
+//             unsplash.search.getCollections({
+//                 query: value,
+//                 page: 1,
+//                 perPage: 10,
+//             }).then(result => {
+//                 if (result.errors) {
+//                     console.log('error occurred: ', result.errors[0]);
+//                 } else {
+//                     const photo = result.response;
+//                     console.log(photo.results);
+//                     let titles = [];
+//                     photo.results.map(el => {
+//                       titles.push(el.title);
+//                     })
+//                     let uniqueChars = [...new Set(titles)];
+//                     setItems(uniqueChars);
+//                 }
+//             })
+//             }, 300);
+//         const regex = new RegExp(`${value}`, 'i');
+//         suggestions = items.sort().filter(v => regex.test(v));
+//             console.log("do wyszukania" + suggestions);
+//     }
+//     setSuggestions(suggestions);
+// }
 
-    const handleAutoComplete = (e) => {
-        setSearch(e.target.value)
-        value = e.target.value;
-        let suggestions = [];
-        if (value.length > 2) {
-            setTimeout(function(){
-            unsplash.search.getCollections({
-                query: value,
-                page: 1,
-                perPage: 10,
-            }).then(result => {
-                if (result.errors) {
-                    console.log('error occurred: ', result.errors[0]);
-                } else {
-                    const photo = result.response;
-                    console.log(photo.results);
-                    let titles = [];
-                    photo.results.map(el => {
-                      titles.push(el.title);
-                    })
-                    let uniqueChars = [...new Set(titles)];
-                    setItems(uniqueChars);
-                }
-            })
-            }, 300);
-        const regex = new RegExp(`${value}`, 'i');
-        suggestions = items.sort().filter(v => regex.test(v));
-            console.log("do wyszukania" + suggestions);
-    }
-    setSuggestions(suggestions);
-}
 
+        const handleAutoComplete = (e) => {
+            setSearch(e.target.value);
+            value = e.target.value;
+            let suggestions = [];
+            if (value.length > 2) {
+                setTimeout(function () {
+                    unsplash.search
+                        .getCollections({
+                            query: value,
+                            page: 1,
+                            perPage: 10,
+                        })
+                        .then((result) => {
+                            if (result.errors) {
+                                console.log("error occurred: ", result.errors[0]);
+                            } else {
+                                const photo = result.response;
+                                console.log(photo.results);
+                                let titles = [];
+                                photo.results.map((el) => {
+                                    titles.push(el.title);
+                                });
+                                let uniqueChars = [...new Set(titles)];
+
+                                const regex = new RegExp(`${value}`, "i");
+                                suggestions = uniqueChars.sort().filter((v) => regex.test(v));
+                                console.log("do wyszukania" + suggestions);
+                                setSuggestions(suggestions);
+                            }
+                        });
+                }, 300);
+            }
+        };
 
 const renderSuggestions = () => {
     if (suggestions.length === 0 && value > 2) {
